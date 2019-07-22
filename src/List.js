@@ -44,31 +44,45 @@ const useStyles = makeStyles(theme => ({
  */
 export default function TitlebarGridList(props) {
   const classes = useStyles();
-        console.log(props.recipes.items,"props")
-        var filterd ;
+        props.createDta();
+        // console.log(props.recipes.items,"props")
+        // var filterd ;
+
+        // let newProps = props.recipes.items.map(item => {
+        //   let filterd = props.recipes.includes.Asset.filter(asset => {
+        //     let photoID = ((((item || {}).fields || {}).photo || {}).sys || {}).id;
+        //     return photoID === asset.sys.id;
+        //   })
+      
+        //   if (filterd.length) {
+        //     item.imageURL = filterd[0].fields.file.url
+        //   } else {
+        //     item.imageURL = 'https://source.unsplash.com/random'
+        //   }
+        // })
+      
   return (
+    
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
         </GridListTile>
-        {props.recipes.items.map(tile => (
-          <GridListTile key={tile.img}>
-
-    {props.recipes.includes.Asset.filter( item2 =>( item2.sys.id===tile.sys.id))}
-            <img src={item2.fields.file.url} alt={tile.title} />
+        {  props.recipes.items.map(tile => (
+          tile.fields.title?
+          <GridListTile key={tile.fields.title}>
+          <img src={tile.imageURL} alt={tile.fields.title} />
     
             <GridListTileBar
               title={tile.fields.title ||tile.fields.name}
-              subtitle={<span>by: {tile.author}</span>}
+              subtitle={<span>by: { JSON.stringify(tile)}</span>}
               actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                  <InfoIcon />
+                <IconButton aria-label={`info about ${tile.fields.title}`} className={classes.icon} onClick ={ ()=>{props.detailedView()}}>
+                  <InfoIcon/>
                 </IconButton>
               }
             />
     ))}
-          </GridListTile>
+          </GridListTile> :''
         ))}
       </GridList>
     </div>

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/MarleySpoon-Assignment/static/js/main.5075237a.chunk.js",
+    "main.js.map": "/MarleySpoon-Assignment/static/js/main.5075237a.chunk.js.map",
+    "runtime~main.js": "/MarleySpoon-Assignment/static/js/runtime~main.d718b49e.js",
+    "runtime~main.js.map": "/MarleySpoon-Assignment/static/js/runtime~main.d718b49e.js.map",
+    "static/js/2.1f792f9e.chunk.js": "/MarleySpoon-Assignment/static/js/2.1f792f9e.chunk.js",
+    "static/js/2.1f792f9e.chunk.js.map": "/MarleySpoon-Assignment/static/js/2.1f792f9e.chunk.js.map",
+    "index.html": "/MarleySpoon-Assignment/index.html",
+    "precache-manifest.85b7076dc398f199bb5868ec526a3b7a.js": "/MarleySpoon-Assignment/precache-manifest.85b7076dc398f199bb5868ec526a3b7a.js",
+    "service-worker.js": "/MarleySpoon-Assignment/service-worker.js"
+  }
+}

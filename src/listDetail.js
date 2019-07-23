@@ -21,8 +21,6 @@ export default function ListDetailDialogue(props) {
   }
 
   return (
-      
-        <div>
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -31,30 +29,20 @@ export default function ListDetailDialogue(props) {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">{props.recipeData.title}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-          {props.detailedData.map( (item,key) =>
-          <div>
-           <h1>Title: 
-           {item.title}</h1>
-            <h2> Desc:
-               {item.desc}</h2>
-               <img src ={item.imageURL}/>
-               </div>
-        )}
+            <img height ="100%" width="100%" src= {props.recipeData.imageURL}></img>
+            <h3> {props.recipeData.chefName } </h3> 
+            <h3>{props.recipeData.tags} </h3>
+            <h3>{props.recipeData.desc}</h3> 
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Agree
+            Close
           </Button>
         </DialogActions>
-      </Dialog>
-            
-    </div>
+      </Dialog>            
   );
 }

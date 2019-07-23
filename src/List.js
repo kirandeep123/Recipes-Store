@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    height: 450,
+    height: 650,
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -26,30 +26,27 @@ const useStyles = makeStyles(theme => ({
 
 export default function TitlebarGridList(props) {
   const classes = useStyles();
-  const [showDetailView, setShowDetailView] = React.useState(false);
-  //console.log(props.recipes[0].title,   "title showing")
-  function handleSetShowDetailView(keydata) {
-    setShowDetailView(true)
+  const [recipeData, setRecipeDetailView] = React.useState(false);
+  //  handling dialog box/detailed view functionality
+  function handleSetRecipeDetailView(recipeData) {
+    setRecipeDetailView(recipeData)
   }
-
-  // Declare, whatever data in model. Pass that data to ListDetailDialogue as props
-  // Show that in model, Key as title may be unique.
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
+      <GridList cellHeight={300} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
         </GridListTile>
-        { showDetailView ? 
-            <ListDetailDialogue   detailedData ={props.recipes} open={true} /> : '' }
-        {  props.recipes.map(tile => (
-          tile.title ?
-          <GridListTile key={tile.title}>
-            <img src={tile.imageURL} alt={tile.imageURL} />
+        { recipeData ? 
+            <ListDetailDialogue key={recipeData.title} recipeData ={recipeData} open={true} /> : '' }
+        {  props.recipes.map(recipeData => (
+          recipeData.title ?
+          <GridListTile key={recipeData.title}>
+            <img src={recipeData.imageURL} alt={recipeData.imageURL} />
             <GridListTileBar
-              title={tile.title}
+              title={recipeData.title}
               actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon} onClick ={handleSetShowDetailView}>
+                <IconButton aria-label={`info about ${recipeData.title}`} className={classes.icon} onClick ={() => handleSetRecipeDetailView(recipeData)}>
                   <InfoIcon/>
                 </IconButton>
               }

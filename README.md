@@ -2,10 +2,8 @@
 ## How to use
 
 
+1. git clone 
+2. npm install
+3. npm start
 
-Install it and run:
 
-```sh
-npm install
-npm start
-```

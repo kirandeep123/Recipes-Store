@@ -1,12 +1,15 @@
 {
   "name": "create-react-app",
+  "homepage": "http://kirandeep123.github.io/MarleySpoon-Assignment",
   "version": "4.0.0",
   "private": true,
   "scripts": {
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@material-ui/core": "^4.2.1",
